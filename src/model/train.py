@@ -33,7 +33,7 @@ def get_csvs_df(path):
     return pd.concat((pd.read_csv(f) for f in csv_files), sort=False)
 
 
-# TO DO: add function to split data
+def split_data(in_df, test_size=0.2, random_state=43):
 
 
 def train_model(reg_rate, X_train, X_test, y_train, y_test):
