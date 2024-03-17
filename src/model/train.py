@@ -7,7 +7,7 @@ import os
 import pandas as pd
 
 from sklearn.linear_model import LogisticRegression
-
+from sklearn.model_selection import train_test_split
 
 # define functions
 def main(args):
@@ -33,13 +33,14 @@ def get_csvs_df(path):
     return pd.concat((pd.read_csv(f) for f in csv_files), sort=False)
 
 
-def split_data(in_df, test_size=0.2, random_state=43):
-
+def split_data(in_df, test_size=0.30, random_state=0):
+    X, y = in_df[['Pregnancies','PlasmaGlucose','DiastolicBloodPressure','TricepsThickness','SerumInsulin','BMI','DiabetesPedigree','Age']].values, df['Diabetic'].values    
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=random_state)
+    return X_train, X_test, y_train, y_test
 
 def train_model(reg_rate, X_train, X_test, y_train, y_test):
     # train model
     LogisticRegression(C=1/reg_rate, solver="liblinear").fit(X_train, y_train)
-
 
 def parse_args():
     # setup arg parser
