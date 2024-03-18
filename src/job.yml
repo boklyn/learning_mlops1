@@ -1,7 +1,7 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 code: model
 command: >-
-  az ml data asset create --file-path ../experimentation/data/mydata.csv --name mydata --description "My CSV data"
+  az ml data asset create --file-path ../experimentation/data --name boklyn_mydata --description "My CSV data"
  
   #python model/train.py
   #--
