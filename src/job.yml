@@ -1,7 +1,17 @@
-$schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
-name: mydata
-description: My CSV data
-type: uri_file
-path: ../experimentation/data/diabetes-dev.csv
-
-
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+code: model
+command: >-
+  az ml data asset create --file-path ../experimentation/data/mydata.csv --name mydata --description "My CSV data"
+ 
+  #python model/train.py
+  #--
+  #--
+inputs:
+  training_data: 
+    type: uri_folder 
+    path: 
+  reg_rate: 0.01
+environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
+compute: azureml:boklyncompute
+experiment_name: myfirstexp  
+description: hellooooooooo
