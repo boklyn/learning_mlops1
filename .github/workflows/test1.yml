@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: check out repo
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: azure login
       uses: azure/login@v2
       with:
@@ -25,5 +25,5 @@ jobs:
       working-directory: cli
       continue-on-error: true
     - name: run job
-      run: bash -x ../../cli/run-job.sh job.yml
+      run: bash -x ../cli/run-job.sh job.yml
       working-directory: src
