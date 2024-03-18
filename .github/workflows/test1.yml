@@ -25,5 +25,5 @@ jobs:
       working-directory: cli
       continue-on-error: true
     - name: run job
-      run: bash -x ../../cli/run-job.sh test1.yml
-      working-directory: experimentation/data
+      run: bash -x ../../cli/run-job.sh job.yml
+      working-directory: src
